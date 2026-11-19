@@ -1,0 +1,15 @@
+# macOS Finder metadata
+.DS_Store
+
+# SQLite database files and sidecars
+*.db
+*.sqlite
+*.sqlite3
+*-journal
+*-shm
+*-wal
+
+# Temporary files
+*~
+*.tmp
+*.temp
