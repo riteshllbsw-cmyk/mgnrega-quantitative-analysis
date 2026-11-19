@@ -1,4 +1,4 @@
-# From Legal Guarantee to Recorded Delivery
+# MGNREGA: Quantitative Analysis of Rural Employment Outcomes
 
 *A descriptive analysis of recorded MGNREGA employment outcomes across 32 displayed jurisdictions.*
 
@@ -16,7 +16,7 @@ The dataset covers 32 jurisdictions displayed in the local source reports. It is
 
 The primary analysis dataset contains **352 jurisdiction-year observations**: 32 displayed jurisdictions for each of 11 financial years, FY 2014–15 through FY 2024–25.
 
-The consolidated input is [`cs50-data-export/mgnrega_annual_indicators.csv`](cs50-data-export/mgnrega_annual_indicators.csv). Its columns are:
+The consolidated input is [`mgnrega_annual_indicators.csv`](mgnrega_annual_indicators.csv). Its columns are:
 
 - `jurisdiction`
 - `fin_year`
@@ -26,14 +26,14 @@ The consolidated input is [`cs50-data-export/mgnrega_annual_indicators.csv`](cs5
 - `total_persondays`
 - `families_completed_100_days`
 
-The project also retains 11 annual MIS reports in [`data/raw/mis_reports/`](data/raw/mis_reports/) and annual report-shaped CSVs in [`data/staging/`](data/staging/). The `.xls` reports are HTML tables despite their file extensions. Each report has 32 jurisdiction rows and a separate `Total` row; the `Total` row is not a jurisdiction observation.
+The original project working folder also contains 11 annual MIS reports in `data/raw/mis_reports/`, their corresponding report-shaped CSVs in `data/staging/`, and two supplementary datasets. These supporting files are retained locally but are not included in this public GitHub repository.
 
-Two supplementary CSVs are retained in the project root:
+The two supplementary datasets are:
 
-- [`syb-18-chapter_35_rural_urban_development_state_table_35.1.csv`](syb-18-chapter_35_rural_urban_development_state_table_35.1.csv) — historical state/UT figures for FY 2010–11 to FY 2017–18.
-- [`RS_Session_265_AU_622_A_i.csv`](RS_Session_265_AU_622_A_i.csv) — parliamentary 100-day completion figures for FY 2019–20 to FY 2023–24.
+- `syb-18-chapter_35_rural_urban_development_state_table_35.1.csv` — historical state/UT figures for FY 2010–11 to FY 2017–18.
+- `RS_Session_265_AU_622_A_i.csv` — parliamentary 100-day completion figures for FY 2019–20 to FY 2023–24.
 
-They are retained as supplementary validation/context sources, not loaded into the primary indicator table.
+These supplementary sources provide validation and historical context. They are not loaded into the primary indicator table.
 
 The [data validation report](outputs/mgnrega_data_validation_report.md) records that Kerala, Maharashtra, Chandigarh, and Delhi are absent from all local MIS reports; the reason is unresolved. Their absence is not treated as zero employment. It also notes unresolved historical geography conventions for Ladakh and the combined `DN HAVELI AND DD` label. Do not interpret the primary dataset as complete all-India coverage.
 
@@ -135,7 +135,7 @@ CREATE TEMP TABLE consolidated_staging (
 );
 
 .mode csv
-.import --skip 1 cs50-data-export/mgnrega_annual_indicators.csv consolidated_staging
+.import --skip 1 mgnrega_annual_indicators.csv consolidated_staging
 
 .read seed.sql
 ```
