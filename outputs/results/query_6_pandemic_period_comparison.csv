@@ -1,0 +1,4 @@
+period,total_demanded,total_availed,fulfilment_rate_pct,offer_rate_pct,avg_annual_demand_availed_gap,avg_annual_persondays
+Pandemic,158252874,140950409,89.07,99.72,8651232.5,3579429701.0
+Post-pandemic,184458909,167565442,90.84,99.84,5631155.666666667,2779029115.6666665
+Pre-pandemic,315093555,281617909,89.38,99.65,5579274.333333333,2190595823.8333335
